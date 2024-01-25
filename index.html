@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+  <head>
+    <script src="js/color-modes.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+    <title>Cover Template · Bootstrap v5.3</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/cover/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+
+      .v-cent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* w3 schools added */
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      input:checked + .slider {
+        background-color: #2196F3;
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+
+      input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+
+      /* Rounded sliders */
+      .slider.round {
+        border-radius: 34px;
+      }
+
+      .slider.round:before {
+        border-radius: 50%;
+      }
+      /* w3 schools added */
+
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="css/cover.css" rel="stylesheet">
+  </head>
+  <body class="text-center text-bg-dark" style="min-height: 100vh;">
+
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+  <main class="px-3 ">  
+    <div id="cards" class="p-auto">
+      <h1 class="d-inline-block px-3">Wait for getting data </h1>
+      <div class="spinner-border d-inline-block" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      
+    </div>
+    
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form action="../edit/" method="post" id="add-customer">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" name="name"  class="form-control" placeholder="Username" aria-label="customer name" aria-describedby="basic-addon1">
+              </div>
+              
+              <div class="input-group mb-3">
+                <input type="text" name="url" class="form-control" placeholder="redirected link" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2">@example.com</span>
+              </div>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" form="add-customer" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- Modal 2 -->
+        <div class="modal fade" id="edituser" tabindex="-1" aria-labelledby="edituserLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+    
+                <form action="../edit/edit.php" method="post" id="edit-customer">
+                  <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupSelect01">choose user name</label>
+                    <select name="id" class="form-select" id="users-links-list">
+                      <option selected>Choose...</option>
+                    </select>
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon2">new url</span>
+                    <input type="text" name="url" class="form-control" placeholder="redirected link" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  </div>
+                </form>
+    
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" form="edit-customer" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-- <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p> -->
+  </main>
+</div>
+<footer class=" py-3 text-white-50">
+  <p>Cover for <a href="https://linktr.ee/mercato74" class="text-white">Merecado</a>, by <a href="http://abubakr.epizy.com" class="text-white">@abubakr</a>.</p>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+  function getSearchParameters() {
+      var prmstr = window.location.search.substr(1);
+      return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+  }
+
+  function transformToAssocArray( prmstr ) {
+      var params = {};
+      var prmarr = prmstr.split("&");
+      for ( var i = 0; i < prmarr.length; i++) {
+          var tmparr = prmarr[i].split("=");
+          params[tmparr[0]] = tmparr[1];
+      }
+      return params;
+  }
+
+  var params = getSearchParameters();
+  var ecdata;
+
+  function fetchGitJSONData() {
+      fetch("https://merecado.github.io/qr/users.json")
+          .then((res) => {
+              if (!res.ok) {
+                  throw new Error
+                      (`HTTP error! Status: ${res.status}`);
+              }
+              return res.json();
+              
+          })
+          .then((data) => {
+              console.log(data);
+              fetchJSONData(data);
+          }
+                )
+          .catch((error) => 
+                 console.error("Unable to fetch data:", error));
+  }
+
+  var needupstate = [] ;
+
+  function fetchJSONData( ongit ) {
+      fetch("../qr/users.json")
+          .then((res) => {
+              if (!res.ok) {
+                  throw new Error
+                      (`HTTP error! Status: ${res.status}`);
+                      
+              }
+              return res.json();
+              
+          })
+          .then((data) => {
+              ecdata = data;
+              class NeedUpdate {
+                id;
+                name;
+                link;
+                needstate;
+                dis;
+              }
+              for (const e of data) { // You can use `let` instead of `const` if you like
+                let objec = new NeedUpdate() ;
+                let objst = ongit.find( o => o.redid == e['redid'] );
+                console.log(objst != undefined);
+                objec['id'] = e['redid'];
+                objec['name'] = e['name'];
+                objec['link'] = e['url'];
+                objec['dis'] = e['s'];
+                objec['needstate'] = (objst != undefined);
+                needupstate.push(objec);
+                  // createCards(element['name'],element['redid']);
+              }
+              console.log(ongit);
+              console.log(needupstate);
+              document.getElementById("cards").innerHTML = `<!-- Button trigger modal -->
+                                                          <div  class="btn-group w-100 my-5" role="group" aria-label="Basic example" >
+                                                              <button type="button" class="btn btn-success btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                                &#x270E; add customer
+                                                              </button>
+                                                              <button type="button" class="btn btn-primary btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#edituser">
+                                                                &#x270E; edit customer
+                                                              </button>
+                                                          </div>`;
+              for (const element of needupstate) { // You can use `let` instead of `const` if you like
+                  console.log(element['name']);
+                  // urlsend = 'abubakr3800.github.io/merecado-qr/?' + element['url']
+                  
+                  createCards(element['name'],element['id'],element['link'],element['needstate'],element['dis']);
+                  createuser(element['id'],element['name'],element['link']);
+
+              }
+          }
+                )
+          .catch((error) => 
+                 console.error("Unable to fetch data:", error));
+  }
+  
+
+  function createCards(name,id,linked,state,s) {
+    var cardContainer = document.createElement("div");
+    cardContainer.setAttribute('class' , 'card mb-3 w-100');
+    // cardContainer.setAttribute('style' , 'max-width: 540px;');
+    
+    var cardRow = document.createElement("div");
+    cardRow.setAttribute('class' , 'row g-0');
+    cardContainer.appendChild(cardRow);
+
+    var cardImgContainer = document.createElement("div");
+    cardImgContainer.setAttribute('class' , 'col-md-4');
+    cardRow.appendChild(cardImgContainer);
+
+    var cardImg = document.createElement("img");
+    cardImg.setAttribute('class' , 'img-fluid rounded-start');
+    cardImg.setAttribute('target' , '_blank');
+    cardImgLink = "https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=abubakr3800.github.io/merecado-qr/?id=" + id;
+    cardImg.setAttribute('src', cardImgLink);
+
+    var cardImgDownload = document.createElement("a");
+    cardImgDownload.setAttribute('href', cardImgLink);
+    cardImgDownload.setAttribute('target' , '_blank');
+    cardImgDownload.appendChild(cardImg);
+    cardImgContainer.appendChild(cardImgDownload);
+
+    var cardBodyContainer = document.createElement("div");
+    cardBodyContainer.setAttribute('class' , "col-md-8 align-center-center");
+    cardRow.appendChild(cardBodyContainer);
+
+    var cardRowToggleText = document.createElement("div");
+    cardRowToggleText.setAttribute('class' , "row g-0 h-100");
+    cardBodyContainer.appendChild(cardRowToggleText);
+
+    var cardTextContainer = document.createElement("div");
+    cardTextContainer.setAttribute('class' , "col-md-10 text-start h-100");
+    cardRowToggleText.appendChild(cardTextContainer);
+
+    var cardToggleContainer = document.createElement("div");
+    cardToggleContainer.setAttribute('class' , "col-md-2 text-start h-100");
+    cardToggleContainer.innerHTML = `<div class="switches pt-2" ><label class="switch" ><input onclick="toggleUser('${id}')" ` + (s == true ? "checked" : "") + ` type="checkbox"><span class="slider"></span></label></div>`;
+    cardRowToggleText.appendChild(cardToggleContainer);
+
+    var cardTitle = document.createElement("h5");
+    cardTitle.setAttribute('class' , 'card-title v-cent h-100');
+    cardTitle.innerHTML = "name is : " + name + "<br>link is : " + linked + "<br>the redirect link is : <a href=https://abubakr3800.github.io/merecado-qr/?id=" + id +" style='display:contents;'> click here</a>" + (state == false ? "<br><br> <p class='text-danger' style='display:contents;'>need to be uploaded</p>" : "") + ``;
+    cardTextContainer.appendChild(cardTitle);
+
+    var cardText = document.createElement("p");
+    cardText.setAttribute('class' , 'cardText');
+    cardTextContainer.appendChild(cardText);
+
+    document.getElementById("cards").appendChild(cardContainer);
+
+    return cardContainer;
+  }
+
+  function fetchGitJSONDataOnline() {
+      fetch("https://merecado.github.io/qr/users.json")
+          .then((res) => {
+              if (!res.ok) {
+                  throw new Error
+                      (`HTTP error! Status: ${res.status}`);
+              }
+              return res.json();
+          })
+          .then((data) => {
+            console.log("online");
+            document.getElementById("cards").innerHTML ="";
+              for (const element of data) { // You can use `let` instead of `const` if you like
+                  console.log(element['name']);
+                  // urlsend = 'abubakr3800.github.io/merecado-qr/?' + element['url']
+                  createCards(element['name'],element['redid']);
+                  // createuser(element['redid'],element['name'],element['url']);
+              }
+          }
+                )
+          .catch((error) => 
+                 console.error("Unable to fetch data:", error));
+  }
+
+  if (window.location.host == 'localhost') {
+    fetchGitJSONData();
+
+  } else if ( window.location.host == 'merecado.github.io') {
+    fetchGitJSONDataOnline();
+
+  }
+
+  function createuser(id,name,link) {
+    var userchild = document.createElement("option");
+    userchild.setAttribute("value" , id);
+    userchild.innerHTML = name;
+    document.getElementById("users-links-list").appendChild(userchild);
+  }
+
+  function toggleUser(usid) {
+    $.ajax({
+      type: 'POST',
+      url: '../edit/togglestate.php',
+      data: {id: usid},
+      success: function(data) {
+        window.location.reload();
+      }
+    });
+  }
+</script>
+    </body>
+</html>
